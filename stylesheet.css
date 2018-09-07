@@ -1,0 +1,64 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+#kitties{
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+.kitty{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  transform: translateX(100%);
+}
+.kitty img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.kitty.onscreen{
+  transform: translateX(0);
+  transition-property: transform;
+  transition-duration: 1s;
+}
+.kitty.exit{
+  transform: translateX(-100%);
+  transition-property: transform;
+  transition-duration: 1s;
+}
+#dots{
+  position: absolute;
+  z-index: 100;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+.dot{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px white solid;
+  margin: 3px;
+}
+.dot.active{
+  background-color: white;
+}
+@media screen and (max-width:720px){
+  #kitties{
+    height: 100vh;
+
+  }
+  .kitty.onscreen{
+    transition-duration: 0.5s;
+  }
+  .kitty.exit{
+    transition-duration: 0.5s;
+  }
+}
